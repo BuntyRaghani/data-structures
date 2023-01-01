@@ -29,6 +29,8 @@ public class LinkedList {
     private Node first;
     // tail
     private Node last;
+    // Keeps a track of number of elements that are currently present in a list
+    private int size;
 
     /**
      * Add new node at the end of the list.
@@ -51,6 +53,7 @@ public class LinkedList {
             last.next = node;
             last = node;
         }
+        size++;
     }
 
     /**
@@ -74,6 +77,7 @@ public class LinkedList {
             node.next = first;
             first = node;
         }
+        size++;
     }
 
 
@@ -135,21 +139,21 @@ public class LinkedList {
         }
 
         // 2. If there is only one node in the list which means first and last node will be the same
-        // Make first and last node null and return so that subsequent code is not executed
+        // Make first and last node null
         if (first == last) {
             first = last = null;
-            return;
+        } else {
+            // 3. If there are multiple nodes in the list
+
+            // Keep a track a second node because we have to make this node as a first node
+            var second = first.next;
+
+            // We have to update the first node so that it points to the second node
+            // Also, we need to de-link the next from the current node(existing first node) so that it is eligible for garbage collection
+            first.next = null;
+            first = second;
         }
-
-        // 3. If there are multiple nodes in the list
-
-        // Keep a track a second node because we have to make this node as a first node
-        var second = first.next;
-
-        // We have to update the first node so that it points to the second node
-        // Also, we need to de-link the next from the current node(existing first node) so that it is eligible for garbage collection
-        first.next = null;
-        first = second;
+        size--;
     }
 
     /**
@@ -164,22 +168,38 @@ public class LinkedList {
         }
 
         // 2. If there is only one node in the list which means first and last node will be the same
-        // Make first and last node null and return so that subsequent code is not executed
+        // Make first and last node null
         if (first == last) {
             first = last = null;
-            return;
+        } else {
+            // 3. If there are multiple nodes in the list
+
+            // Keep a track a second last node because we have to make this node as a last node
+            var previous = getPrevious(last);
+
+            // We have to update the last node so that it points to the second last node
+            // Also, we need to de-link the next from the last node so that that node that we have removed is eligible for garbage collection
+            last = previous;
+            last.next = null;
         }
+        size--;
+    }
 
-        // 3. If there are multiple nodes in the list
 
-        // Keep a track a second last node because we have to make this node as a last node
-        var previous = getPrevious(last);
-
-        // We have to update the last node so that it points to the second last node
-        // Also, we need to de-link the next from the last node so that that node that we have removed is eligible for garbage collection
-        last = previous;
-        last.next = null;
-
+    /**
+     * Get the size of linked list.
+     * <p>
+     * Instead of traversing the whole linked list again and again when the size method is called, the best way to implement this solution is
+     * To create one internal variable 'size' which will keep a track of number of elements that are currently present in the list
+     * This size variable will be incremented and decremented as and when the elements are added/removed from the list
+     * <p>
+     * Runtime complexity of this optimized solution is O(1)
+     * Runtime complexity of traversing the whole list and returning the size is O(n)
+     *
+     * @return the int
+     */
+    public int size() {
+        return size;
     }
 
     // This method is useful to get the previous node of the input node
