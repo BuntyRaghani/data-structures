@@ -101,8 +101,24 @@ public class LinkedList {
             current = current.next;
             index++;
         }
-        // If value is not found in list, return -1
+        // Value not found in the list, return -1
         return -1;
+    }
+
+    /**
+     * Check whether item is present in linked list.
+     * <p>
+     * We need to traverse the list starting from the beginning all the way towards the end
+     * As soon as we find a node containing the value that matches with the input item, we return the result stating value is found
+     *
+     * Here we will reuse the indexOf method because we are already traversing the entire list in case of indexOf method to see whether the value is present in the list or not
+     *
+     * @param item the item
+     * @return the int
+     */
+    public boolean contains(int item) {
+        // If value returned by indexOf method is not equals to -1, it means we have found the desired value in the linked list
+        return indexOf(item) != -1;
     }
 
     private boolean isEmpty() {
