@@ -20,6 +20,7 @@ public class Main {
         System.out.println("Index of value 20 in list: " + linkedList.indexOf(20));
         System.out.println("Is value 25 present in the list? " + linkedList.contains(25));
         System.out.println("Is value 20 present in the list? " + linkedList.contains(20));
+        linkedList.removeFirst();
 
     }
 

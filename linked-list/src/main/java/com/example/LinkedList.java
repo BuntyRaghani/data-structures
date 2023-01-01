@@ -1,6 +1,8 @@
 package com.example;
 
 
+import java.util.NoSuchElementException;
+
 /**
  * Create our own linked list
  */
@@ -110,7 +112,7 @@ public class LinkedList {
      * <p>
      * We need to traverse the list starting from the beginning all the way towards the end
      * As soon as we find a node containing the value that matches with the input item, we return the result stating value is found
-     *
+     * <p>
      * Here we will reuse the indexOf method because we are already traversing the entire list in case of indexOf method to see whether the value is present in the list or not
      *
      * @param item the item
@@ -119,6 +121,35 @@ public class LinkedList {
     public boolean contains(int item) {
         // If value returned by indexOf method is not equals to -1, it means we have found the desired value in the linked list
         return indexOf(item) != -1;
+    }
+
+    /**
+     * Remove first node from the linked list.
+     */
+    public void removeFirst() {
+        // Three Scenarios needs to be handled here
+
+        // 1. If list is empty, throw No Such Element exception as thrown by Java linked list class
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        // 2. If there is only one node in the list which means first and last node will be the same
+        // Make first and last node null and return so that subsequent code is not executed
+        if (first == last) {
+            first = last = null;
+            return;
+        }
+
+        // 3. If there are multiple nodes in the list
+
+        // Keep a track a second node because we have to make this node as a first node
+        var second = first.next;
+
+        // We have to update the first node so that it points to the second node
+        // Also, we need to de-link the next from the current node(existing first node) so that it is eligible for garbage collection
+        first.next = null;
+        first = second;
     }
 
     private boolean isEmpty() {
