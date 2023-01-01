@@ -64,7 +64,7 @@ public class LinkedList {
         // 2. If list is not empty, we just need to prepend this new node at the beginning of the list and point head to this new node
 
         // If first is null, means list is empty
-        if(isEmpty()) {
+        if (isEmpty()) {
             first = last = node;
         } else {
             // We have at least one node in the list
@@ -72,6 +72,37 @@ public class LinkedList {
             node.next = first;
             first = node;
         }
+    }
+
+
+    /**
+     * Index of item.
+     * <p>
+     * We need to traverse the list starting from the beginning all the way towards the end
+     * As soon as we find a node containing the value that matches with the input item, we return the index
+     *
+     * @param item the item
+     * @return the int
+     */
+    public int indexOf(int item) {
+        // Since we don't have the concept of index in linked list, here we are creating our index for tracking purpose
+        int index = 0;
+
+        // We will start with first node and update this current node as we will traverse throughout the list to find our desired value
+        var current = first;
+
+        // Traverse the list as long as we have nodes available
+        while (current != null) {
+
+            // if value is found, return the index
+            if (current.value == item) return index;
+
+            // Else increment the current node to point to the next node and also increment the index value by 1
+            current = current.next;
+            index++;
+        }
+        // If value is not found in list, return -1
+        return -1;
     }
 
     private boolean isEmpty() {

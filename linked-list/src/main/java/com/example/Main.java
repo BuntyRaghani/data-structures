@@ -16,6 +16,9 @@ public class Main {
         linkedList.addLast(20);
         linkedList.addLast(30);
         linkedList.addFirst(5);
+        System.out.println("Index of value 25 in list: " + linkedList.indexOf(25));
+        System.out.println("Index of value 20 in list: " + linkedList.indexOf(20));
+
     }
 
 
