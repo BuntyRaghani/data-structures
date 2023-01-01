@@ -41,7 +41,7 @@ public class LinkedList {
         // 2. If list is not empty, we just need to append this new node at the end of the list and point tail to this new node
 
         // If first is null, means list is empty
-        if (first == null) {
+        if (isEmpty()) {
             first = last = node;
         } else {
             // We have at least one node in the list
@@ -49,7 +49,32 @@ public class LinkedList {
             last.next = node;
             last = node;
         }
-
     }
 
+    /**
+     * Add new node at the beginning of the list.
+     *
+     * @param item the item
+     */
+    public void addFirst(int item) {
+        var node = new Node(item);
+
+        // Two Scenarios
+        // 1. If list is empty, we need to point both head and tail to this new node
+        // 2. If list is not empty, we just need to prepend this new node at the beginning of the list and point head to this new node
+
+        // If first is null, means list is empty
+        if(isEmpty()) {
+            first = last = node;
+        } else {
+            // We have at least one node in the list
+            // Now we have to prepend this new node to the first node and update the first node to point to this new node
+            node.next = first;
+            first = node;
+        }
+    }
+
+    private boolean isEmpty() {
+        return first == null;
+    }
 }
