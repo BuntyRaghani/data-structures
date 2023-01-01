@@ -21,6 +21,7 @@ public class Main {
         System.out.println("Is value 25 present in the list? " + linkedList.contains(25));
         System.out.println("Is value 20 present in the list? " + linkedList.contains(20));
         linkedList.removeFirst();
+        linkedList.removeLast();
 
     }
 

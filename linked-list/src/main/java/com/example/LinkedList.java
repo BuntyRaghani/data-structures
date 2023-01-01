@@ -152,6 +152,48 @@ public class LinkedList {
         first = second;
     }
 
+    /**
+     * Remove last node from the linked list.
+     */
+    public void removeLast() {
+        // Three Scenarios needs to be handled here
+
+        // 1. If list is empty, throw No Such Element exception as thrown by Java linked list class
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        // 2. If there is only one node in the list which means first and last node will be the same
+        // Make first and last node null and return so that subsequent code is not executed
+        if (first == last) {
+            first = last = null;
+            return;
+        }
+
+        // 3. If there are multiple nodes in the list
+
+        // Keep a track a second last node because we have to make this node as a last node
+        var previous = getPrevious(last);
+
+        // We have to update the last node so that it points to the second last node
+        // Also, we need to de-link the next from the last node so that that node that we have removed is eligible for garbage collection
+        last = previous;
+        last.next = null;
+
+    }
+
+    // This method is useful to get the previous node of the input node
+    private Node getPrevious(Node node) {
+        var current = first;
+        while (current != null) {
+            if (current.next == node) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
+
     private boolean isEmpty() {
         return first == null;
     }
