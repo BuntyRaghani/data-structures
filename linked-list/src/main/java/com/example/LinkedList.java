@@ -202,6 +202,78 @@ public class LinkedList {
         return size;
     }
 
+
+    /**
+     * Convert the linked list to an array
+     * <p>
+     * Traverse the entire list and keep adding node values to an array
+     *
+     * @return the int [ ]
+     */
+    public int[] toArray() {
+
+        // Create a new array as per the size of existing linked list
+        int[] array = new int[size];
+
+        var current = first;
+        int index = 0;
+        while (current != null) {
+            array[index] = current.value;
+            current = current.next;
+            index++;
+        }
+        return array;
+    }
+
+
+    /**
+     * Reverse a Linked List in place.
+     * <p>
+     * This logic is based on previous, current and next nodes wherein
+     * previous = first node
+     * current = second node
+     * next = third node
+     * <p>
+     * We will iterate from start until current != null which denotes we have reached the end of the linked list
+     * <p>
+     *   H           T
+     * [10 -> 20 -> 30]
+     *  p     c     n
+     *        p     c     n
+     *              p     c     n
+     * <p>
+     *        T           H
+     * o/p: [10 <- 20 <- 30]
+     */
+    public void reverse() {
+
+        // Handle edge case scenario when list is empty.
+        if (isEmpty())
+            return;
+
+        var previous = first;
+        var current = first.next;
+        while (current != null) {
+            var next = current.next;
+
+            // reversing link of current node to point to the previous node
+            current.next = previous;
+
+            // preparing for next iteration
+            previous = current;
+            current = next;
+        }
+
+        // To set last we don't have to traverse the reversed list from start till end this will increase the complexity
+        // We can set last before we start traversing the list
+        last = first;
+        // Since last node.next points to null we have to handle this by setting last.next = null
+        last.next = null;
+
+        // When we reach end of linked list, previous variable will be pointing to last node. We can use that to set head
+        first = previous;
+    }
+
     // This method is useful to get the previous node of the input node
     private Node getPrevious(Node node) {
         var current = first;

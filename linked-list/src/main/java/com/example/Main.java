@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Arrays;
+
 /**
  * The type Main.
  */
@@ -25,6 +27,9 @@ public class Main {
         System.out.println("Is value 20 present in the list? " + linkedList.contains(20));
         linkedList.removeFirst();
         linkedList.removeLast();
+        System.out.println("Linked list to array: " + Arrays.toString(linkedList.toArray()));
+        linkedList.reverse();
+        System.out.println("Linked list after the reverse operation: " + Arrays.toString(linkedList.toArray()));
 
     }
 
