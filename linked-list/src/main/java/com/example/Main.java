@@ -32,6 +32,7 @@ public class Main {
         System.out.println("Linked list after the reverse operation: " + Arrays.toString(linkedList.toArray()));
         System.out.println("Last node from linked list: " + linkedList.getKthFromTheEnd(1));
         System.out.println("Second last node from linked list: " + linkedList.getKthFromTheEnd(2));
+        linkedList.getMiddle();
 
     }
 

@@ -330,6 +330,52 @@ public class LinkedList {
         return firstPointer.value;
     }
 
+    /**
+     * Gets middle node value
+     *
+     * [10 -> 20 -> 30 -> 40 -> 50]
+     *              *
+     *
+     * [10 -> 20 -> 30 -> 40 -> 50 -> 60]
+     *               *     *
+     *
+     * To solve this problem, we will have to make use of two pointers
+     * <p>
+     * Approach:
+     * 1. To find how many nodes should the first and second pointers be apart, Try to find the pattern with odd and even number of nodes in list
+     * 2. In both the cases(odd & even number of list), the number of nodes is increasing by two but the position of middle node is increasing by 1
+     * 3. Initially, both the pointers will be at start
+     * 3. Now, start moving both the pointers, first pointer will be moved 1 step at a time and second pointer will be moved 2 steps at a time
+     * 4. Once the second pointer reaches the end of the linked list, first pointer will be at our desired node i.e. middle node
+     */
+    public void getMiddle() {
+
+        // If the list is empty, the further code should not run
+        if (isEmpty()) {
+            throw new IllegalStateException();
+        }
+
+        // Initially, both the pointers will be at the first node
+        var firstPointer = first;
+        var secondPointer = first;
+
+        // Traverse through the list until second pointer reaches the last node or second pointer next node is not the last node
+        while (secondPointer != last && secondPointer.next != last) {
+            // Increment first pointer one step at a time
+            // Increment second pointer two steps at a time
+            firstPointer = firstPointer.next;
+            secondPointer = secondPointer.next.next;
+        }
+
+        // Result in case of odd no. of nodes in list
+        if(secondPointer == last) {
+            System.out.println(firstPointer.value);
+        } else {
+            // in this case, second pointer will be null that means we have even no. of nodes in our list
+            System.out.println(firstPointer.value + ", " + firstPointer.next.value);
+        }
+    }
+
     // This method is useful to get the previous node of the input node
     private Node getPrevious(Node node) {
         var current = first;
