@@ -274,6 +274,62 @@ public class LinkedList {
         first = previous;
     }
 
+
+    /**
+     * Gets kth from the end.
+     * <p>
+     * Find the Kth node from the end of a linked list in one pass.
+     * [10 -> 20 -> 30 -> 40 -> 50]
+     *              *           *
+     * <p>
+     * K = 1 = 50
+     * K = 2 = 40
+     * K= 3 = 30
+     * <p>
+     * To solve this problem, we will have to make use of two pointers
+     * Find the optimal distance between two pointers that are K-1 nodes apart.
+     * Example: 3rd node value from the end - 1 = 2. The distance between two pointers should be two nodes
+     * <p>
+     * Approach:
+     * 1. Initially, both the pointers will be at start
+     * 2. Start moving the second pointer until the distance between the two pointers is k-1
+     * 3. Now, start moving both pointers, one step at a time, until the second pointer reaches the end of the linked list
+     * 4. Once the second pointer reaches the end of the linked list, first pointer will be at our desired node i.e. Kth node from the last
+     *
+     * @param k the k
+     * @return the kth node value from the end
+     */
+    public int getKthFromTheEnd(int k) {
+
+        // If the list is empty, the further code should not run
+        // Also, handling situation wherein input k  <= 0
+        if (isEmpty() || k <= 0) {
+            throw new IllegalStateException();
+        }
+
+        // Initially, both the pointers will be at the first node
+        var firstPointer = first;
+        var secondPointer = first;
+
+        // Move the second pointer k-1 nodes apart
+        for (int i = 0; i < k - 1; i++) {
+            secondPointer = secondPointer.next;
+
+            // Handling scenario wherein value of Kth node is greater than the total number of nodes in linked list
+            if (secondPointer == null) {
+                throw new IllegalArgumentException("Input cannot be greater than the size of the linked list");
+            }
+        }
+
+        // Start moving both the pointers until the second pointer reaches the end of the linked list
+        // Once the second pointer reaches the end of the linked list, grab the value from the first pointer
+        while (secondPointer != last) {
+            firstPointer = firstPointer.next;
+            secondPointer = secondPointer.next;
+        }
+        return firstPointer.value;
+    }
+
     // This method is useful to get the previous node of the input node
     private Node getPrevious(Node node) {
         var current = first;
