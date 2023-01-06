@@ -33,6 +33,7 @@ public class Main {
         System.out.println("Last node from linked list: " + linkedList.getKthFromTheEnd(1));
         System.out.println("Second last node from linked list: " + linkedList.getKthFromTheEnd(2));
         linkedList.getMiddle();
+        System.out.println("Whether linked list has a loop? " + linkedList.hasLoop());
 
     }
 

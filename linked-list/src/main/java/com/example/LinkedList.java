@@ -376,6 +376,39 @@ public class LinkedList {
         }
     }
 
+
+    /**
+     * Check if linked list has a loop.
+     *
+     * Approach
+     * 1. Use two pointers, fast and slow pointers
+     * 2. Move slow pointer one step at a time and fast pointer two steps at a time
+     * 3. If there's a loop, at some point, the fast pointer will meet the slow pointer.
+     * This algorithm is called Floyd's cycle finding algorithm.
+     *
+     * @return the boolean
+     */
+    public boolean hasLoop() {
+
+        // Initially, both the pointers will be at the first node
+        Node slow = first;
+        Node fast = first;
+
+        // Traverse through the list until the fast pointer is null or next node of fast node is null
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            // If slow and fast pointers point to the same node means there is a loop in linked list
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+        // There is no loop in linked list
+        return false;
+    }
+
     // This method is useful to get the previous node of the input node
     private Node getPrevious(Node node) {
         var current = first;
