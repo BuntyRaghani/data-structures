@@ -7,5 +7,9 @@ public class Main {
         String reversedString = stringReverser.reverse("abcd");
         System.out.println("Reversed String: " + reversedString);
 
+        ExpressionMatcher expressionMatcher = new ExpressionMatcher();
+        boolean isBalanced = expressionMatcher.isBalanced("(1+2)");
+        System.out.println("Is input string balanced: " + isBalanced);
+
     }
 }
