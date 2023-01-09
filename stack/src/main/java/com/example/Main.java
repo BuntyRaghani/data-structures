@@ -11,5 +11,15 @@ public class Main {
         boolean isBalanced = expressionMatcher.isBalanced("(1+2)");
         System.out.println("Is input string balanced: " + isBalanced);
 
+        Stack stack = new Stack();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        System.out.println("Stack after pushing 3 elements: " + stack);
+        stack.pop();
+        System.out.println("Stack after removing 1 element: " + stack);
+        System.out.println("Top element: " + stack.peek());
+        System.out.println("is stack empty? " + stack.isEmpty());
+
     }
 }
