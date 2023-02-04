@@ -41,5 +41,18 @@ public class Main {
             System.out.println("Stack 1 is full, cannot insert more elements.");
         }
 
+        System.out.println("\n\n\nOutput of min stack");
+        MinStack minStack = new MinStack();
+        System.out.println("Initial state of min stack: " + minStack.printMinStack());
+        minStack.push(5);
+        minStack.push(2);
+        minStack.push(10);
+        minStack.push(1);
+        System.out.println("Min stack after inserting 4 elements: " + minStack.printMinStack());
+        System.out.println("Min item: " + minStack.min());
+        minStack.pop();
+        System.out.println("Min stack after removing the top element: " + minStack.printMinStack());
+        System.out.println("Min item: " + minStack.min());
+
     }
 }
