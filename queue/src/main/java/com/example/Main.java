@@ -32,5 +32,14 @@ public class Main {
         // At this stage circular queue is full, if we try to insert more elements, we will get IllegalStateException
         // arrayQueue.enqueue(30);
 
+        System.out.println("\n\n\nQueue with two stacks output");
+        QueueWithTwoStacks queueWithTwoStacks = new QueueWithTwoStacks();
+        queueWithTwoStacks.enqueue(10);
+        queueWithTwoStacks.enqueue(20);
+        queueWithTwoStacks.enqueue(30);
+        System.out.println("First element: " + queueWithTwoStacks.dequeue());
+        System.out.println("First element: " + queueWithTwoStacks.dequeue());
+        System.out.println("First Element: " + queueWithTwoStacks.dequeue());
+
     }
 }
