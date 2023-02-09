@@ -41,5 +41,18 @@ public class Main {
         System.out.println("First element: " + queueWithTwoStacks.dequeue());
         System.out.println("First Element: " + queueWithTwoStacks.dequeue());
 
+        System.out.println("\n\n\nPriority Queue");
+        PriorityQueue priorityQueue = new PriorityQueue();
+        priorityQueue.add(5);
+        priorityQueue.add(3);
+        priorityQueue.add(6);
+        priorityQueue.add(1);
+        priorityQueue.add(4);
+        System.out.println("Queue after adding 5 elements: " + priorityQueue);
+        System.out.println("Is queue full?: " + priorityQueue.isFull());
+        System.out.println("Remove an item from queue: " + priorityQueue.remove());
+        System.out.println("Remove an item from queue: " + priorityQueue.remove());
+        System.out.println("Is queue empty?: " + priorityQueue.isEmpty());
+
     }
 }
