@@ -54,5 +54,15 @@ public class Main {
         System.out.println("Min stack after removing the top element: " + minStack.printMinStack());
         System.out.println("Min item: " + minStack.min());
 
+        System.out.println("\n\n\nOutput of Stack Using Two Queues");
+        StackWithTwoQueues stackWithTwoQueues = new StackWithTwoQueues();
+        System.out.println("Initial state of stack with two queues: " + stackWithTwoQueues);
+        stackWithTwoQueues.push(5);
+        stackWithTwoQueues.push(2);
+        stackWithTwoQueues.push(10);
+        stackWithTwoQueues.push(1);
+        System.out.println("Stack with two queues after inserting 4 elements: " + stackWithTwoQueues);
+        stackWithTwoQueues.pop();
+        System.out.println("Stack with two queues after removing the top element: " + stackWithTwoQueues);
     }
 }
