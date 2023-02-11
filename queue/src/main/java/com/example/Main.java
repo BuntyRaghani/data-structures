@@ -54,5 +54,17 @@ public class Main {
         System.out.println("Remove an item from queue: " + priorityQueue.remove());
         System.out.println("Is queue empty?: " + priorityQueue.isEmpty());
 
+        System.out.println("\n\n\nQueue Reverse with First K Elements");
+        Queue<Integer> inputQueue = new ArrayDeque<>();
+        inputQueue.add(10);
+        inputQueue.add(20);
+        inputQueue.add(30);
+        inputQueue.add(40);
+        inputQueue.add(50);
+        System.out.println("Initial input queue: " + inputQueue);
+        QueueReverserWithFirstKElements queueReverserWithFirstKElements = new QueueReverserWithFirstKElements();
+        queueReverserWithFirstKElements.reverse(inputQueue, 3);
+        System.out.println("Queue after reversing elements: " + inputQueue);
+
     }
 }
