@@ -21,14 +21,14 @@ public class Main {
         arrayQueue.enqueue(5);
         arrayQueue.enqueue(10);
         arrayQueue.enqueue(15);
-        System.out.println("array queue after adding 3 elements: " + arrayQueue);
+        System.out.println("Array queue after adding 3 elements: " + arrayQueue);
         arrayQueue.dequeue();
-        System.out.println("array queue after removing 1 element: " + arrayQueue);
+        System.out.println("Array queue after removing 1 element: " + arrayQueue);
         arrayQueue.enqueue(20);
         arrayQueue.enqueue(25);
-        System.out.println("array queue after adding 2 more elements: " + arrayQueue);
+        System.out.println("Array queue after adding 2 more elements: " + arrayQueue);
         arrayQueue.enqueue(30);
-        System.out.println("array queue after adding 1 more element: " + arrayQueue);
+        System.out.println("Array queue after adding 1 more element: " + arrayQueue);
         // At this stage circular queue is full, if we try to insert more elements, we will get IllegalStateException
         // arrayQueue.enqueue(30);
 
@@ -65,6 +65,21 @@ public class Main {
         QueueReverserWithFirstKElements queueReverserWithFirstKElements = new QueueReverserWithFirstKElements();
         queueReverserWithFirstKElements.reverse(inputQueue, 3);
         System.out.println("Queue after reversing elements: " + inputQueue);
+
+        System.out.println("\n\n\nLinked List Queue Output");
+        LinkedListQueue linkedListQueue = new LinkedListQueue();
+        System.out.println("Initial linked list queue: " + linkedListQueue);
+        linkedListQueue.enqueue(5);
+        linkedListQueue.enqueue(10);
+        linkedListQueue.enqueue(15);
+        System.out.println("Linked list queue after adding 3 elements: " + linkedListQueue);
+        linkedListQueue.dequeue();
+        System.out.println("Linked list queue after removing 1 element: " + linkedListQueue);
+        linkedListQueue.enqueue(20);
+        linkedListQueue.enqueue(25);
+        System.out.println("Linked list queue after adding 2 more elements: " + linkedListQueue);
+        linkedListQueue.enqueue(30);
+        System.out.println("Linked list queue after adding 1 more element: " + arrayQueue);
 
     }
 }
