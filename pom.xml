@@ -15,6 +15,7 @@
         <module>stack</module>
         <module>queue</module>
         <module>hash-table</module>
+        <module>set</module>
     </modules>
 
     <properties>
