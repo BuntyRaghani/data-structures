@@ -35,6 +35,11 @@ public class Main {
         // will throw IllegalStateException. Linked list was null at specified index. Also, we don't have any entry with key 10
         //hashTable.remove(16);
         // will throw IllegalStateException. Linked list was not null but key 16 does not exist
+
+        System.out.println("\n\n\nMost Repeated Element Finder");
+        int[] inputArray = new int[]{1, 2, 2, 3, 3, 3, 4};
+        MostRepeatedElementFinder mostRepeatedElementFinder = new MostRepeatedElementFinder();
+        System.out.println("Most Repeated Element: " + mostRepeatedElementFinder.mostFrequent(inputArray));
     }
 
 
