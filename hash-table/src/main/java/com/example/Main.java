@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Arrays;
+
 /**
  * The type Main.
  */
@@ -40,7 +42,12 @@ public class Main {
         int[] inputArray = new int[]{1, 2, 2, 3, 3, 3, 4};
         MostRepeatedElementFinder mostRepeatedElementFinder = new MostRepeatedElementFinder();
         System.out.println("Most Repeated Element: " + mostRepeatedElementFinder.mostFrequent(inputArray));
-    }
 
+        System.out.println("\n\n\nTwo Sum Index Finder");
+        int[] twoSumIndexFinderInputArray = new int[]{2, 11, 7, 15};
+        int target = 9;
+        TwoSumIndexFinder twoSumIndexFinder = new TwoSumIndexFinder();
+        System.out.println("Indexes of elements adding up to target " + target + " are " + Arrays.toString(twoSumIndexFinder.twoSum(twoSumIndexFinderInputArray, target)));
+    }
 
 }
