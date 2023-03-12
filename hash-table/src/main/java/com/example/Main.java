@@ -31,7 +31,7 @@ public class Main {
         System.out.println("Value associated with key 10 is " + hashTable.get(10)); // null - key 10 does not exist
 
         hashTable.remove(6);
-        System.out.println("Hash table after entry with key 6: " + hashTable);
+        System.out.println("Hash table after removing entry with key 6: " + hashTable);
 
         //hashTable.remove(10);
         // will throw IllegalStateException. Linked list was null at specified index. Also, we don't have any entry with key 10
@@ -48,6 +48,23 @@ public class Main {
         int target = 9;
         TwoSumIndexFinder twoSumIndexFinder = new TwoSumIndexFinder();
         System.out.println("Indexes of elements adding up to target " + target + " are " + Arrays.toString(twoSumIndexFinder.twoSum(twoSumIndexFinderInputArray, target)));
+
+
+        System.out.println("\n\n\n Hash Table With Linear Probing");
+        HashTableLinearProbing hashTableLinearProbing = new HashTableLinearProbing();
+        hashTableLinearProbing.put(6, "A");
+        hashTableLinearProbing.put(8, "B");
+        hashTableLinearProbing.put(11, "C");
+        System.out.println("Hash table after inserting 3 key value pairs: " + hashTableLinearProbing);
+
+        hashTableLinearProbing.put(6, "A+");
+        System.out.println("Hash table after adding duplicate key: " + hashTableLinearProbing);
+
+        System.out.println("Value associated with key 6 is " + hashTableLinearProbing.get(6));
+        System.out.println("Value associated with key 10 is " + hashTableLinearProbing.get(10));
+
+        hashTableLinearProbing.remove(6);
+        System.out.println("Hash table after removing entry with key 6: " + hashTableLinearProbing);
     }
 
 }
