@@ -16,6 +16,7 @@
         <module>queue</module>
         <module>hash-table</module>
         <module>set</module>
+        <module>binary-tree</module>
     </modules>
 
     <properties>
